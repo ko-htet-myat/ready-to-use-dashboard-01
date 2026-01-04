@@ -134,3 +134,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+.min-d-h {
+  @apply min-h-[calc(100vh-64px)];
+}

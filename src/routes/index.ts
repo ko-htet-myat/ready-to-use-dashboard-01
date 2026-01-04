@@ -2,11 +2,16 @@ import DashboardLayout from "@/layouts/dashboard-layout";
 import { createBrowserRouter, redirect } from "react-router";
 import DashboardPage, { loader } from "./dashboard";
 import RootLayout from "@/layouts/root-layout";
-import LoginPage from "./auth/login";
-import UserPage from "./user";
-import ProductPage from "./product";
-import CategoryPage from "./category";
+import { NotFoundPage } from "./404";
+import {
+  CreateEmployeePage,
+  EmployeeLeavePage,
+  employeeLoader,
+  EmployeePage,
+  leaveLoader,
+} from "./employee";
 import { ROUTE_NAMES } from "@/constants/route.names";
+import { LoginPage } from "./auth";
 
 export const routes = createBrowserRouter([
   {
@@ -14,7 +19,7 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => redirect("/dashboard"),
+        loader: () => redirect(ROUTE_NAMES.DASHBOARD),
       },
       {
         path: ROUTE_NAMES.LOGIN,
@@ -30,24 +35,30 @@ export const routes = createBrowserRouter([
             Component: DashboardPage,
           },
           {
-            path: ROUTE_NAMES.USER,
-            Component: UserPage,
-          },
-          {
-            path: ROUTE_NAMES.PRODUCT,
+            path: ROUTE_NAMES.EMPLOYEE,
             children: [
               {
                 index: true,
-                Component: ProductPage,
+                loader: async () => await employeeLoader(),
+                Component: EmployeePage,
               },
               {
-                path: ROUTE_NAMES.CATEGORY,
-                Component: CategoryPage,
+                path: ROUTE_NAMES.CREATE,
+                Component: CreateEmployeePage,
+              },
+              {
+                path: ROUTE_NAMES.LEAVE,
+                loader: async () => await leaveLoader(),
+                Component: EmployeeLeavePage,
               },
             ],
           },
         ],
       },
     ],
+  },
+  {
+    path: "*",
+    Component: NotFoundPage,
   },
 ]);
