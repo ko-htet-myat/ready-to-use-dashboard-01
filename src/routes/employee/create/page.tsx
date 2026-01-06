@@ -1,3 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 export default function CreateEmployeePage() {
-  return <div>CreateEmployeePage</div>;
+  const { t } = useTranslation();
+  return (
+    <div>
+      CreateEmployeePage
+      <p>{t("common.welcome")}</p>
+    </div>
+  );
 }

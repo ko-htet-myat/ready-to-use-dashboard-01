@@ -23,9 +23,9 @@ export function TeamSwitcher({
   teams,
 }: {
   teams: {
-    name: string;
+    nameKey: string;
     logo: React.ElementType;
-    plan: string;
+    planKey: string;
   }[];
 }) {
   const { isMobile } = useSidebar();
@@ -48,8 +48,10 @@ export function TeamSwitcher({
                 <activeTeam.logo className="size-4" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{activeTeam.name}</span>
-                <span className="truncate text-xs">{activeTeam.plan}</span>
+                <span className="truncate font-medium">
+                  {activeTeam.nameKey}
+                </span>
+                <span className="truncate text-xs">{activeTeam.planKey}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
@@ -65,14 +67,14 @@ export function TeamSwitcher({
             </DropdownMenuLabel>
             {teams.map((team, index) => (
               <DropdownMenuItem
-                key={team.name}
+                key={team.nameKey}
                 onClick={() => setActiveTeam(team)}
                 className="gap-2 p-2"
               >
                 <div className="flex size-6 items-center justify-center rounded-md border">
                   <team.logo className="size-3.5 shrink-0" />
                 </div>
-                {team.name}
+                {team.nameKey}
                 <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
               </DropdownMenuItem>
             ))}

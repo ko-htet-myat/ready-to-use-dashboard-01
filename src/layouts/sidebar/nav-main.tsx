@@ -17,21 +17,23 @@ import {
 } from "@/components/ui/sidebar";
 import { Activity, Fragment } from "react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export function NavMain({
   items,
 }: {
   items: {
-    title: string;
+    titleKey: string;
     url: string;
     icon?: LucideIcon;
     isActive?: boolean;
     items?: {
-      title: string;
+      titleKey: string;
       url: string;
     }[];
   }[];
 }) {
+  const { t } = useTranslation("common");
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -42,26 +44,26 @@ export function NavMain({
               mode={item.items && item.items?.length > 0 ? "visible" : "hidden"}
             >
               <Collapsible
-                key={item.title}
+                key={item.titleKey}
                 asChild
                 defaultOpen={item.isActive}
                 className="group/collapsible"
               >
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip={item.title}>
+                    <SidebarMenuButton tooltip={item.titleKey}>
                       {item.icon && <item.icon />}
-                      <span>{item.title}</span>
+                      <span>{t(item.titleKey)}</span>
                       <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
-                        <SidebarMenuSubItem key={subItem.title}>
+                        <SidebarMenuSubItem key={subItem.titleKey}>
                           <SidebarMenuSubButton asChild>
                             <Link to={subItem.url}>
-                              <span>{subItem.title}</span>
+                              <span>{t(subItem.titleKey)}</span>
                             </Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
@@ -80,7 +82,7 @@ export function NavMain({
                 <SidebarMenuButton asChild>
                   <Link to={item.url}>
                     {item.icon && <item.icon />}
-                    <span>{item.title}</span>
+                    <span>{t(item.titleKey)}</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>

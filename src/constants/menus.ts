@@ -13,214 +13,121 @@ import {
   SquareTerminal,
 } from "lucide-react";
 import { ROUTE_LINKS } from "./route.links";
+import { Url } from "@hugeicons/core-free-icons";
 
 export const MENUS = {
   user: {
-    name: "shadcn",
+    nameKey: "user.name",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
+
   teams: [
     {
-      name: "Acme Inc",
+      nameKey: "teams.acmeInc",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      planKey: "plans.enterprise",
     },
     {
-      name: "Acme Corp.",
+      nameKey: "teams.acmeCorp",
       logo: AudioWaveform,
-      plan: "Startup",
+      planKey: "plans.startup",
     },
     {
-      name: "Evil Corp.",
+      nameKey: "teams.evilCorp",
       logo: Command,
-      plan: "Free",
+      planKey: "plans.free",
     },
   ],
+
   navMain: [
     {
-      title: "Dashboard",
+      titleKey: "menu.dashboard",
       url: ROUTE_LINKS.DASHBOARD,
       icon: SquareTerminal,
       isActive: true,
-      items: [
-        // {
-        //   title: "History",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Starred",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Settings",
-        //   url: "#",
-        // },
-      ],
+      item: [],
     },
     {
-      title: "Employees",
-      url: "#",
+      titleKey: "menu.employees",
       icon: Bot,
+      url: "#",
+      isActive: false,
       items: [
-        {
-          title: "List",
-          url: ROUTE_LINKS.EMPLOYEE,
-        },
-        {
-          title: "Create",
-          url: ROUTE_LINKS.CREATE_EMPLOYEE,
-        },
-        {
-          title: "Leave",
-          url: ROUTE_LINKS.EMPLOYEE_LEAVE,
-        },
+        { titleKey: "menu.list", url: ROUTE_LINKS.EMPLOYEE },
+        { titleKey: "menu.create", url: ROUTE_LINKS.CREATE_EMPLOYEE },
+        { titleKey: "menu.leave", url: ROUTE_LINKS.EMPLOYEE_LEAVE },
       ],
     },
     {
-      title: "Projects",
-      url: "#",
+      titleKey: "menu.projects",
       icon: BookOpen,
+      url: "#",
+      isActive: false,
       items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
+        { titleKey: "menu.introduction", url: "#" },
+        { titleKey: "menu.getStarted", url: "#" },
+        { titleKey: "menu.tutorials", url: "#" },
+        { titleKey: "menu.changelog", url: "#" },
       ],
     },
     {
-      title: "Payroll",
-      url: "#",
+      titleKey: "menu.payroll",
       icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
+      url: "#",
+      isActive: false,
+      item: [],
     },
     {
-      title: "Hiring",
-      url: "#",
+      titleKey: "menu.hiring",
       icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
+      url: "#",
+      isActive: false,
+      item: [],
     },
     {
-      title: "Meeting Rooms",
-      url: "#",
+      titleKey: "menu.meetingRooms",
       icon: PictureInPicture2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
+      url: "#",
+      isActive: false,
+      item: [],
     },
     {
-      title: "Recruitment",
-      url: "#",
+      titleKey: "menu.recruitment",
       icon: BriefcaseBusiness,
+      url: "#",
+      isActive: false,
       items: [
+        { titleKey: "menu.list", url: ROUTE_LINKS.RECRUITMENT },
+        { titleKey: "menu.create", url: ROUTE_LINKS.CREATE_RECRUITMENT },
         {
-          title: "List",
-          url: ROUTE_LINKS.RECRUITMENT,
-        },
-        {
-          title: "Create",
-          url: ROUTE_LINKS.CREATE_RECRUITMENT,
-        },
-        {
-          title: "Candidates",
+          titleKey: "menu.candidates",
           url: ROUTE_LINKS.RECRUITMENT_CANDIDATES,
         },
       ],
     },
     {
-      title: "Ai Insights",
-      url: "#",
+      titleKey: "menu.aiInsights",
       icon: SquareTerminal,
-      items: [
-        // {
-        //   title: "History",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Starred",
-        //   url: "#",
-        // },
-        // {
-        //   title: "Settings",
-        //   url: "#",
-        // },
-      ],
+      url: "#",
+      isActive: false,
+      item: [],
     },
   ],
+
   projects: [
     {
-      name: "Design Engineering",
+      nameKey: "projects.designEngineering",
       url: "#",
       icon: Frame,
     },
     {
-      name: "Sales & Marketing",
+      nameKey: "projects.salesMarketing",
       url: "#",
       icon: PieChart,
     },
     {
-      name: "Travel",
+      nameKey: "projects.travel",
       url: "#",
       icon: Map,
     },
