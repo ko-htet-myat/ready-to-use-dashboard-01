@@ -45,6 +45,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans: "Figtree Variable", sans-serif;
+  --spacing: 0.27rem;
 }
 
 :root {

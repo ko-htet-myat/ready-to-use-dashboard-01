@@ -13,7 +13,6 @@ import {
   SquareTerminal,
 } from "lucide-react";
 import { ROUTE_LINKS } from "./route.links";
-import { Url } from "@hugeicons/core-free-icons";
 
 export const MENUS = {
   user: {
