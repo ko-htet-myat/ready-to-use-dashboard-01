@@ -1,11 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { useGetUsersQuery } from "@/api/user-api";
 
 export default function CreateEmployeePage() {
-  const { t } = useTranslation();
-  return (
-    <div>
-      CreateEmployeePage
-      <p>{t("common.welcome")}</p>
-    </div>
-  );
+  const { data, isLoading } = useGetUsersQuery();
+
+  if (isLoading) return <p>Loading ...</p>;
+  console.log(data, "mock data");
+  return <div>CreateEmployeePage</div>;
 }
