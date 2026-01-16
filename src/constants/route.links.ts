@@ -20,4 +20,12 @@ export const ROUTE_LINKS = {
   EDIT_RECRUITMENT: "/dashboard/recruitment/edit/:id",
   RECRUITMENT_CANDIDATES: "/dashboard/recruitment/candidate",
   //#endregion
+
+  //#region Employee
+  PAYROLL: "/dashboard/payroll",
+  VIEW_PAYROLL: "/dashboard/employee/view/:id",
+  CREATE_PAYROLL: "/dashboard/employee/create",
+  EDIT_PAYROLL: "/dashboard/employee/edit/:id",
+  EMPLOYPAYROLL: "/dashboard/employee/leave",
+  //#endregion
 };

@@ -3,15 +3,12 @@ import { createBrowserRouter, redirect } from "react-router";
 import DashboardPage, { loader } from "./dashboard";
 import RootLayout from "@/layouts/root-layout";
 import { NotFoundPage } from "./404";
-import {
-  CreateEmployeePage,
-  EmployeeLeavePage,
-  employeeLoader,
-  EmployeePage,
-  leaveLoader,
-} from "./employee";
+import { CreateEmployeePage, employeeLoader, EmployeePage } from "./employee";
 import { ROUTE_NAMES } from "@/constants/route.names";
 import { LoginPage } from "./auth";
+import { leaveLoader } from "./leave";
+import { ForbiddenPage } from "./403";
+import { PayrollPage } from "./payroll";
 
 export const routes = createBrowserRouter([
   {
@@ -49,11 +46,23 @@ export const routes = createBrowserRouter([
               {
                 path: ROUTE_NAMES.LEAVE,
                 loader: async () => await leaveLoader(),
-                Component: EmployeeLeavePage,
+                // Component: EmployeeLeavePage,
+                lazy: {
+                  Component: async () =>
+                    (await import("./leave")).EmployeeLeavePage,
+                },
               },
             ],
           },
+          {
+            path: ROUTE_NAMES.PAYROLL,
+            Component: PayrollPage,
+          },
         ],
+      },
+      {
+        path: ROUTE_NAMES.FORBIDDEN,
+        Component: ForbiddenPage,
       },
     ],
   },

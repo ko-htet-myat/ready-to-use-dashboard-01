@@ -6,7 +6,11 @@ export const userApi = baseApi.injectEndpoints({
       query: () => "/users",
       providesTags: ["User"],
     }),
+    getPayrolls: builder.query<any[], void>({
+      query: () => "/payrolls",
+      providesTags: ["Payrolls"],
+    }),
   }),
 });
 
-export const { useGetUsersQuery } = userApi;
+export const { useGetUsersQuery, useGetPayrollsQuery } = userApi;

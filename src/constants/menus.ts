@@ -73,7 +73,7 @@ export const MENUS = {
     {
       titleKey: "menu.payroll",
       icon: Settings2,
-      url: "#",
+      url: ROUTE_LINKS.PAYROLL,
       isActive: false,
       item: [],
     },
