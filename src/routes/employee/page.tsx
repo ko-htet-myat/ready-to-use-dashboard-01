@@ -1,5 +1,4 @@
-import JsonView from "@/components/common/json-view";
-import PageTitle from "@/components/common/page-title";
+import EmployeeTable from "@/features/employee/components/employee-table";
 import { useTypedLoaderData } from "@/hooks/use-loader-data";
 
 type EmployeeTypes = {
@@ -15,8 +14,7 @@ export default function EmployeePage() {
   console.log(employees);
   return (
     <div>
-      <PageTitle>Employee Page</PageTitle>
-      <JsonView data={employees} />
+      <EmployeeTable />
     </div>
   );
 }
